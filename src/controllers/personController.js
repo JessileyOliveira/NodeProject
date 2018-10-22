@@ -13,12 +13,17 @@ exports.delete = (req, res, next) => {
 };
 
 exports.get = (req, res, next) => {
-    res.status(200).send('teste');
+    var body = req.body;
+    PersonModel.find(body, (err, data) => {
+        if (err) {
+            return  res.status(500).json({ error: true, data: err });
+        }
+        return  res.status(201).json({ error: false, data: data });
+    });
 };
 
 exports.insertLanguage = (req, res, next) => {
     var body = req.body;
-    console.log(body);
 	PersonModel.create(body, (err, data) => {
         if (err) {
             return  res.status(500).json({ error: true, data: err });

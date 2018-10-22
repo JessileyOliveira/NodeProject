@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost:3000/Hedellen', {useMongoClient: true});
+mongoose.connect('mongodb://localhost/Hedellen', {useMongoClient: true});
 const Schema = mongoose.Schema
 
 const _schema = {
@@ -75,6 +75,6 @@ const _schema = {
     }
 
 const PersonSchema = new Schema(_schema, { versionKey: false });
-const PersonModel = mongoose.model('board', PersonSchema);
+const PersonModel = mongoose.model('Person', PersonSchema);
 
 module.exports = PersonModel
