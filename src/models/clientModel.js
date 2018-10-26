@@ -1,18 +1,17 @@
 const mongoose = require('mongoose')
-//mongoose.connect('mongodb://localhost/Hedellen', {useMongoClient: true});
 const Schema = mongoose.Schema
 
 const _schema = {
     
-		language: {
+		token: {
             type: String,
             required: true,
             index: {
                 unique: false
             },
         },
-        status: {
-            type: Boolean,
+        email: {
+            type: String,
             required: true,
             default: true,
             index: {
@@ -74,7 +73,7 @@ const _schema = {
         }
     }
 
-const PersonSchema = new Schema(_schema, { versionKey: false });
-const PersonModel = db2.model('Person', PersonSchema);
+const ClientSchema = new Schema(_schema, { versionKey: false });
+const ClientModel = db.model('Client', ClientSchema);
 
-module.exports = PersonModel
+module.exports = ClientModel

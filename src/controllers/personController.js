@@ -14,7 +14,7 @@ exports.delete = (req, res, next) => {
 
 exports.get = (req, res, next) => {
     var body = req.body;
-    PersonModel.find(body, (err, data) => {
+    PersonModel.find({}, (err, data) => {
         if (err) {
             return  res.status(500).json({ error: true, data: err });
         }
